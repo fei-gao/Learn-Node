@@ -5,6 +5,6 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', storeController.homePage);
 router.get('/add', storeController.addStore);
-router.post('/add', storeController.createStore);
+router.post('/add', catchErrors(storeController.createStore));
 
 module.exports = router;
